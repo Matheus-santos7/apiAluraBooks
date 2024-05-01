@@ -9,8 +9,8 @@ class LivroController {
         .exec();
 
       res.status(200).json(livrosResultado);
-    } catch (erro) {
-      next(erro);    }
+    } catch (err) {
+      next(err);    }
   };
 
   static listarLivroPorId = async (req, res, next) => {
@@ -22,8 +22,8 @@ class LivroController {
         .exec();
 
       res.status(200).send(livroResultados);
-    } catch (erro) {
-      next(erro);
+    } catch (err) {
+      next(err);
     }
   };
 
@@ -34,8 +34,8 @@ class LivroController {
       const livroResultado = await livro.save();
 
       res.status(201).send(livroResultado.toJSON());
-    } catch (erro) {
-      next(erro);
+    } catch (err) {
+      next(err);
     }
   };
 
@@ -46,8 +46,8 @@ class LivroController {
       await livros.findByIdAndUpdate(id, {$set: req.body});
 
       res.status(200).send({message: "Livro atualizado com sucesso"});
-    } catch (erro) {
-      next(erro);
+    } catch (err) {
+      next(err);
     }
   };
 
@@ -58,8 +58,8 @@ class LivroController {
       await livros.findByIdAndDelete(id);
 
       res.status(200).send({message: "Livro removido com sucesso"});
-    } catch (erro) {
-      next(erro);
+    } catch (err) {
+      next(err);
     }
   };
 
@@ -70,8 +70,8 @@ class LivroController {
       const livrosResultado = await livros.find({"editora": editora});
 
       res.status(200).send(livrosResultado);
-    } catch (erro) {
-      next(erro);
+    } catch (err) {
+      next(err);
     }
   };
 }
