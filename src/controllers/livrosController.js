@@ -2,8 +2,10 @@ import livros from "../models/Livro.js";
 
 class LivroController {
 
+
   static listarLivros = async (req, res, next) => {
-    try {
+
+    try { 
       const livrosResultado = await livros.find()
         .populate("autor")
         .exec();
@@ -14,6 +16,7 @@ class LivroController {
   };
 
   static listarLivroPorId = async (req, res, next) => {
+    
     try {
       const id = req.params.id;
 
