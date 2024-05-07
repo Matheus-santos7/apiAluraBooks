@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.Schema.Types.String.set( "validate", {
+mongoose.Schema.Types.String.set("validate", {
   validator: (valor) => valor !== "",
-  message: ({ path }) => `O campo ${path} não pode ser vazio`
+  message: ({ path }) => `O campo ${path} foi fornecido em branco.`
 });
-
