@@ -5,7 +5,11 @@ class LivroController {
 
   static listarLivros = async (req, res, next) => {
     try {
+      const {limite = 5, pagina = 1} = req.query;
+
       const livrosResultado = await livros.find()
+        .skip((pagina - 1) * limite)
+        .limit(limite)
         .populate("autor")
         .exec();
 
